@@ -1,5 +1,6 @@
 import ContactForm from "../components/Contact/ContactForm";
 import ParticlesContainer from "../components/Contact/Particles";
+import Footer from "../components/Footer";
 import Navbar from "../components/Homepage/Navbar";
 
 const Contact = () => {
@@ -16,6 +17,7 @@ const Contact = () => {
           <ContactForm />
         </div>
       </main>
+      <Footer />
     </>
   );
 };

@@ -6,6 +6,7 @@ import AdvancedAudioPlayer from "./components/Homepage/AudioPlayer";
 import AudioVisualizer from "./components/Homepage/AudioVisualizer";
 import Footer from "./components/Footer";
 import Link from "next/link";
+import About from "./components/Homepage/About";
 
 export default function Home() {
   const [smallScreen, setSmallScreen] = useState(false);
@@ -45,7 +46,10 @@ export default function Home() {
               >
                 Get a Quote -&gt;
               </Link>
-              <Link href="/tracks" className="btn btn-ghost text-md m-2">
+              <Link
+                href="https://soundcloud.com/nullxrt/may-wip-give-me-ideas"
+                className="btn btn-ghost text-md m-2"
+              >
                 View Tracks -&gt;
               </Link>
             </div>
@@ -76,13 +80,16 @@ export default function Home() {
             >
               Get a Quote -&gt;
             </Link>
-            <Link href="/tracks" className="btn btn-ghost text-lg m-2">
+            <Link
+              href="https://soundcloud.com/nullxrt/may-wip-give-me-ideas"
+              className="btn btn-ghost text-lg m-2"
+            >
               View Tracks -&gt;
             </Link>
           </div>
         </div>
       </div>
-
+      <About />
       <Footer />
     </main>
   );

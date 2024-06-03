@@ -44,3 +44,32 @@
 .home-gradient {
   background: linear-gradient(to bottom, black 60%, #e761e5);
 }
+
+.about-gradient {
+  background: linear-gradient(to bottom, #e761e5, #5301d3, #000);
+}
+
+.audio-before::before {
+  content: "Play Me -> ";
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  transform: translateX(-150%);
+  animation: bobHorizontal 2s infinite;
+  transition: opacity 0.5s;
+}
+@keyframes bobHorizontal {
+  0% {
+    transform: translateX(calc(-5px - 150%));
+  }
+  50% {
+    transform: translateX(calc(5px - 150%));
+  }
+  100% {
+    transform: translateX(calc(-5px - 150%));
+  }
+}
+
+.audio-before.hide-before::before {
+  opacity: 0;
+}

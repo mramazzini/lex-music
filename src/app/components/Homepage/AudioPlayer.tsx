@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import AudioVisualizer from "./AudioVisualizer";
 
 interface Song {
@@ -9,45 +9,37 @@ interface Song {
 
 const AdvancedAudioPlayer = () => {
   const audio = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+
+  const [init, setInit] = useState(false);
+
   const [currentSong, setCurrentSong] = useState<Song>({
     title: "Axe",
     src: "/songs/axxxx.wav",
   });
-  const [init, setInit] = useState(false);
 
-  const togglePlay = () => {
-    setInit(true);
-
-    if (isPlaying) {
-      stop();
-    } else {
-      play();
+  useEffect(() => {
+    const audioElement = audio.current;
+    if (audioElement) {
+      audioElement.src = currentSong.src;
+      audioElement.volume = 0.5; // Set the volume to 0.5
     }
-  };
-
-  const play = () => {
-    if (!audio.current) return;
-    audio.current.play();
-    setIsPlaying(true);
-  };
-
-  const stop = () => {
-    if (!audio.current) return;
-    audio.current.pause();
-    setIsPlaying(false);
-  };
+  }, [currentSong]);
 
   return (
-    <>
+    <div
+      className={`audio-before flex flex-row  items-center ${
+        init ? "hide-before" : ""
+      }`}
+    >
       <audio
         id={`audio`}
         ref={audio}
         src={currentSong.src}
         controls
-        className="bg-transparent"
+        className="bg-transparent "
+        onPlay={() => setInit(true)}
       ></audio>
-    </>
+    </div>
   );
 };
 

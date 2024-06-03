@@ -2,13 +2,11 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="footer items-center p-2 bg-black text-neutral-content">
+    <footer className="footer items-center p-2 bg-black text-neutral-content relative z-[999]">
       {" "}
       <aside className="items-center grid-flow-col">
         <img src="/nullart.jpg" className="w-6 h-6 rounded-xl" />
-        <p>
-          Created by Matteo Ramazzini - Copyright © 2024 - All right reserved
-        </p>
+        <p>Created by Matteo Ramazzini - Copyright © 2024</p>
       </aside>
       <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
         <Link
