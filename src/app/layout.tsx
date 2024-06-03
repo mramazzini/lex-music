@@ -7,6 +7,36 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Nullart Music",
   description: "Custom music for your projects - By Nullart",
+  keywords: "custom music, music projects, Nullart",
+  openGraph: {
+    title: "Nullart Music",
+    description: "Custom music for your projects - By Nullart",
+    type: "website",
+    url: "https://nullartmusic.com",
+    siteName: "Nullart Music",
+    images: [
+      {
+        url: "https://nullartmusic.com/hero-bg.svg",
+        width: 800,
+        height: 600,
+        alt: "Nullart Music",
+      },
+    ],
+  },
+  viewport: "width=device-width, initial-scale=1",
+  twitter: {
+    card: "summary_large_image",
+    title: "Nullart Music",
+    description: "Custom music for your projects - By Nullart",
+    images: [
+      {
+        url: "https://nullartmusic.com/hero-bg.svg",
+        width: 800,
+        height: 600,
+        alt: "Nullart Music",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
