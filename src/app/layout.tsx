@@ -23,7 +23,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  viewport: "width=device-width, initial-scale=1",
+
   twitter: {
     card: "summary_large_image",
     title: "Nullart Music",

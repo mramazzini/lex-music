@@ -5,6 +5,8 @@ import Navbar from "./components/Homepage/Navbar";
 import AdvancedAudioPlayer from "./components/Homepage/AudioPlayer";
 import AudioVisualizer from "./components/Homepage/AudioVisualizer";
 import Footer from "./components/Footer";
+import Link from "next/link";
+
 export default function Home() {
   const [smallScreen, setSmallScreen] = useState(false);
   useEffect(() => {
@@ -13,20 +15,21 @@ export default function Home() {
     }
   }, []);
   return (
-    <main className="flex flex-col min-h-screen bg-black ">
+    <main className="flex flex-col min-h-screen bg-black">
       <Navbar />
       <AudioVisualizer />
+      <div className="home-gradient max-h-[1200px] h-screen w-screen absolute top-0 left-0 z-0"></div>
       <img
         src="/hero-bg.svg"
         className="absolute h-screen w-screen bot-0 object-cover  max-h-[1200px] pointer-events-none z-[0]"
       />
       <canvas
         id="canvas"
-        className="absolute h-screen w-screen  pointer-events-none  max-h-[1200px] top-0 left-0 pointer-events-none z-[0]"
+        className="absolute h-screen w-screen  pointer-events-none  max-h-[1200px] top-0 left-0 pointer-events-none z-[1]"
       ></canvas>
 
       {/* hero */}
-      <div className="flex h-screen relative items-center justify-between text-white font-bold flex-col pt-20 px-4 md:px-0 xl:bg-none w-full max-h-[1200px]">
+      <div className="flex h-screen relative items-center justify-between text-white font-bold flex-col pt-20 px-4 md:px-0 xl:bg-none w-full max-h-[1200px] ">
         <div className="flex flex-col items-center justify-center ">
           <h1 className="text-center text-7xl  ">
             <span className="gradient-text">Nullart</span> Music
@@ -36,28 +39,45 @@ export default function Home() {
           </p>
           <div className="flex-col items-center justify-center flex md:hidden">
             <div className="flex-row items-center justify-center  my-4">
-              <button className="btn btn-secondary text-md m-2 text-white ">
+              <Link
+                href="/contact"
+                className="btn btn-secondary text-md m-2 text-white "
+              >
                 Get a Quote -&gt;
-              </button>
-              <button className="btn btn-ghost text-md m-2">
+              </Link>
+              <Link href="/tracks" className="btn btn-ghost text-md m-2">
                 View Tracks -&gt;
-              </button>
+              </Link>
             </div>
-            <h3 className="text-xl text-center w-full m-3">Now Playing: Axe</h3>
+            <h3 className="text-xl text-center w-full m-3 btn btn-ghost">
+              Now Playing:{" "}
+              <Link className="text-secondary font-bold" href="#">
+                Axe
+              </Link>
+            </h3>
             {smallScreen && <AdvancedAudioPlayer />}
           </div>
         </div>
 
         <div className="flex-col items-center justify-center m-4 hidden md:flex ">
+          <h3 className="text-xl text-center w-full m-3 btn btn-ghost">
+            Now Playing:{" "}
+            <Link className="text-secondary font-bold" href="#">
+              Axe
+            </Link>
+          </h3>
           {!smallScreen && <AdvancedAudioPlayer />}
 
           <div className="flex-row items-center justify-center m-4  ">
-            <button className="btn btn-secondary text-lg m-2 text-white ">
+            <Link
+              href="/contact"
+              className="btn btn-secondary text-lg m-2 text-white "
+            >
               Get a Quote -&gt;
-            </button>
-            <button className="btn btn-ghost text-lg m-2">
+            </Link>
+            <Link href="/tracks" className="btn btn-ghost text-lg m-2">
               View Tracks -&gt;
-            </button>
+            </Link>
           </div>
         </div>
       </div>
