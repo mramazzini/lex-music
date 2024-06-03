@@ -10,6 +10,7 @@ import About from "./components/Homepage/About";
 
 export default function Home() {
   const [smallScreen, setSmallScreen] = useState(false);
+  const [mouseHover, setMouseHover] = useState(false);
   useEffect(() => {
     if (window.innerWidth < 768) {
       setSmallScreen(true);
@@ -56,8 +57,16 @@ export default function Home() {
             <Link
               href="https://soundcloud.com/nullxrt/may-wip-give-me-ideas"
               className="text-xl text-center w-full m-3 btn btn-ghost"
+              onMouseEnter={() => setMouseHover(true)}
+              onMouseLeave={() => setMouseHover(false)}
             >
-              Now Playing: Axe
+              <span
+                className={`absolute transition transition-opacity duration-500 ${
+                  mouseHover ? "opacity-0" : "opacity-100"
+                }`}
+              >
+                Now Playing: Axe
+              </span>
             </Link>
 
             {smallScreen && <AdvancedAudioPlayer />}
@@ -67,10 +76,17 @@ export default function Home() {
         <div className="flex-col items-center justify-center m-4 hidden md:flex ">
           <Link
             href="https://soundcloud.com/nullxrt/may-wip-give-me-ideas"
-            className="text-xl text-center w-full m-3 btn btn-ghost"
+            className="text-xl text-center w-full m-3 btn btn-ghost "
           >
-            Now Playing: Axe
+            <span
+              className={`absolute transition transition-opacity duration-500 ${
+                mouseHover ? "opacity-0" : "opacity-100"
+              }`}
+            >
+              Now Playing: Axe
+            </span>
           </Link>
+
           {!smallScreen && <AdvancedAudioPlayer />}
 
           <div className="flex-row items-center justify-center m-4  ">
