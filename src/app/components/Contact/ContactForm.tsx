@@ -6,11 +6,16 @@ import ReCAPTCHA from "react-google-recaptcha";
 const ContactForm = () => {
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>("");
   const [sentMail, setSentMail] = useState(false);
+  const [loadState, setLoadState] = useState<
+    "captcha" | "solved" | "sending" | "sent" | "error"
+  >();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    setLoadState("sending");
     e.preventDefault();
 
     if (!recaptchaToken) {
       alert("Please complete the reCAPTCHA");
+      setLoadState("captcha");
       return;
     }
 
@@ -28,9 +33,9 @@ const ContactForm = () => {
         message,
         recaptchaToken,
       });
-      alert("Email sent successfully");
+      setLoadState("sent");
     } catch (error) {
-      alert("Failed to send email");
+      setLoadState("error");
     }
   };
 
@@ -102,10 +107,41 @@ const ContactForm = () => {
             <ReCAPTCHA
               className="my-4"
               sitekey="6LcO-O8pAAAAAPOO62NWdar7KUpb5df6mGmc3Fnm"
-              onChange={(token) => setRecaptchaToken(token)}
+              onChange={(token) => {
+                setRecaptchaToken(token);
+                setLoadState("solved");
+              }}
             />
+          ) : loadState === "sending" ? (
+            <div className="alert alert-info" role="alert">
+              <div className="flex-1">
+                <label>Sending email...</label>
+              </div>
+            </div>
+          ) : loadState === "solved" ? (
+            <button type="submit" className="btn btn-secondary">
+              Send Message
+            </button>
+          ) : loadState === "sent" ? (
+            <div className="alert alert-success" role="alert">
+              <div className="flex-1">
+                <label>
+                  Message Successfully received. I&apos;ll get back to you soon!
+                </label>
+              </div>
+            </div>
+          ) : loadState === "error" ? (
+            <div className="alert alert-error" role="alert">
+              <div className="flex-1">
+                <label>Error sending email. Please try again later.</label>
+              </div>
+            </div>
           ) : (
-            <button className="btn btn-secondary">Send</button>
+            <div className="alert alert-error" role="alert">
+              <div className="flex-1">
+                <label>Complete the reCAPTCHA</label>
+              </div>
+            </div>
           )}
         </div>
       )}
