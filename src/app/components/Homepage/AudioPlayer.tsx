@@ -40,7 +40,13 @@ const AdvancedAudioPlayer = () => {
 
   return (
     <>
-      <audio id={`audio`} ref={audio} src={currentSong.src} controls></audio>
+      <audio
+        id={`audio`}
+        ref={audio}
+        src={currentSong.src}
+        controls
+        className="bg-transparent"
+      ></audio>
       <AudioVisualizer audioID={`audio`} />
 
       <div className="flex justify-center items-center flex-row">
