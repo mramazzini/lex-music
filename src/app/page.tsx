@@ -48,7 +48,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex-col items-center justify-center m-4 hidden md:flex my-48">
+        <div className="flex-col items-center justify-center m-4 hidden md:flex ">
           {!smallScreen && <AdvancedAudioPlayer />}
 
           <div className="flex-row items-center justify-center m-4  ">

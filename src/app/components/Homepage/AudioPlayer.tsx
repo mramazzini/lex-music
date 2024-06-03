@@ -40,13 +40,6 @@ const AdvancedAudioPlayer = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center flex-row">
-        <div className="flex justify-center items-center flex-col">
-          <h3 className="hidden md:block text-4xl text-center w-full m-3">
-            Play Me!
-          </h3>
-        </div>
-      </div>
       <audio
         id={`audio`}
         ref={audio}
