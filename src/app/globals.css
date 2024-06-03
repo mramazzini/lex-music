@@ -37,6 +37,10 @@ body {
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
 }
 
+.pink-svg {
+  filter: drop-shadow(3px 5px 2px pink);
+}
+
 .curvy-line path {
   fill: pink;
   stroke: none;

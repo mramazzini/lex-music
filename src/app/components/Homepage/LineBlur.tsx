@@ -1,6 +1,6 @@
 const LineBlur = () => {
   return (
-    <div className="staff absolute flex flex-col items-center justify-center z-[0] w-[150%] blur-2xl select-none">
+    <div className="staff absolute flex flex-col items-center justify-center z-[0] w-[150%] blur-2xl select-none max-w-screen overflow-hidden">
       <img
         src="/line.svg"
         alt="curvy lines"
