@@ -2,11 +2,18 @@
 import Link from "next/link";
 import { useState } from "react";
 import { sendEmail } from "@/lib/email.actions";
-
+import ReCAPTCHA from "react-google-recaptcha";
 const ContactForm = () => {
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>("");
   const [sentMail, setSentMail] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!recaptchaToken) {
+      alert("Please complete the reCAPTCHA");
+      return;
+    }
+
     const form = e.currentTarget as HTMLFormElement;
     const formData = new FormData(form);
     const name = formData.get("name") as string;
@@ -19,6 +26,7 @@ const ContactForm = () => {
         email,
         phone,
         message,
+        recaptchaToken,
       });
       alert("Email sent successfully");
     } catch (error) {
@@ -89,7 +97,17 @@ const ContactForm = () => {
           </button>
         </div>
       ) : (
-        <button className="btn btn-secondary">Send</button>
+        <div className="flex flex-col items-start justify-center">
+          {!recaptchaToken ? (
+            <ReCAPTCHA
+              className="my-4"
+              sitekey="6LcO-O8pAAAAAPOO62NWdar7KUpb5df6mGmc3Fnm"
+              onChange={(token) => setRecaptchaToken(token)}
+            />
+          ) : (
+            <button className="btn btn-secondary">Send</button>
+          )}
+        </div>
       )}
     </form>
   );

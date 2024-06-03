@@ -6,13 +6,25 @@ async function sendEmail({
   email,
   phone,
   message,
+  recaptchaToken,
 }: {
   name: string;
   email: string;
   phone: string;
   message: string;
+  recaptchaToken: string;
 }) {
   try {
+    const captchaResponse = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.CAPTCHA}&response=${recaptchaToken}`,
+      {
+        method: "POST",
+      }
+    );
+    if (!captchaResponse.ok) {
+      throw new Error("Failed to verify captcha");
+    }
+
     const transporter = nodemailer.createTransport({
       service: "outlook",
       auth: {
