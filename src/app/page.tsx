@@ -16,7 +16,7 @@ export default function Home() {
   }, []);
   return (
     <main className="flex flex-col min-h-screen bg-black">
-      <Navbar />
+      <Navbar fixed />
       <AudioVisualizer />
       <div className="home-gradient max-h-[1200px] h-screen w-screen absolute top-0 left-0 z-0"></div>
       <img

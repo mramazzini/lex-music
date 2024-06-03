@@ -1,13 +1,13 @@
 import Link from "next/link";
 
-export const Navbar = () => {
+export const Navbar = ({ fixed }: { fixed?: boolean }) => {
   return (
-    <div className="navbar  fixed z-[999] px-4">
+    <div className={`navbar  z-[999] px-4 ${fixed ? "fixed" : "relative"}`}>
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">
+        <Link href="/" className="btn btn-ghost text-xl">
           <img src="/nullart.jpg" className="w-6 h-6 rounded-xl" />
           Nullart
-        </a>
+        </Link>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 hidden md:flex">
