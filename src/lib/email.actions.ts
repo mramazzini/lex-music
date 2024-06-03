@@ -20,7 +20,10 @@ async function sendEmail({
         pass: process.env.PASSWORD,
       },
     });
-
+    console.log("name", name);
+    console.log("email", email);
+    console.log("phone", phone);
+    console.log("message", message);
     let info = await transporter.sendMail({
       from: process.env.EMAIL,
       to: process.env.TO_EMAIL,

@@ -54,7 +54,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} bg-black`}>{children}</body>
     </html>
   );
 }

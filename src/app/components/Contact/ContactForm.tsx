@@ -1,14 +1,18 @@
 "use client";
-
+import Link from "next/link";
+import { useState } from "react";
 import { sendEmail } from "@/lib/email.actions";
 
 const ContactForm = () => {
+  const [sentMail, setSentMail] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const name = (e.currentTarget.elements[0] as HTMLInputElement).value;
-    const email = (e.currentTarget.elements[1] as HTMLInputElement).value;
-    const message = (e.currentTarget.elements[2] as HTMLInputElement).value;
-    const phone = (e.currentTarget.elements[3] as HTMLInputElement).value;
+    const form = e.currentTarget as HTMLFormElement;
+    const formData = new FormData(form);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
+    const message = formData.get("message") as string;
     try {
       await sendEmail({
         name,
@@ -23,43 +27,70 @@ const ContactForm = () => {
   };
 
   return (
-    <form
-      onSubmit={(e) => handleSubmit(e)}
-      className="flex flex-col items-center justify-center w-full h-full"
-    >
-      <h1 className="text-4xl text-white">Contact Us</h1>
-      <div className="flex flex-col w-1/2 mt-4">
-        <label className="text-white" htmlFor="name">
-          Name
-        </label>
-        <input className="p-2 rounded-md" type="text" id="name" name="name" />
-      </div>
-      <div className="flex flex-col w-1/2 mt-4">
-        <label className="text-white" htmlFor="email">
-          Email
+    <form className="w-full" onSubmit={handleSubmit}>
+      <div className="form-control">
+        <label className="label">
+          <span className="label-text">Name</span>
         </label>
         <input
-          className="p-2 rounded-md"
-          type="email"
-          id="email"
-          name="email"
+          type="text"
+          placeholder="Your Name"
+          className="bg-transparent input border-b border border-b-primary w-full"
+          name="name"
+          required
         />
       </div>
-      <div className="flex flex-col w-1/2 mt-4">
-        <label className="text-white" htmlFor="phone">
-          Phone
+      <div className="form-control">
+        <label className="label">
+          <span className="label-text">Email</span>
         </label>
-        <input className="p-2 rounded-md" type="tel" id="phone" name="phone" />
+        <input
+          type="email"
+          placeholder="Your Email"
+          className="bg-transparent input border-b border border-b-primary w-full"
+          name="email"
+          required
+        />
       </div>
-      <div className="flex flex-col w-1/2 mt-4">
-        <label className="text-white" htmlFor="message">
-          Message
+      <div className="form-control ">
+        <label className="label">
+          <span className="label-text">Phone</span>
         </label>
-        <textarea className="p-2 rounded-md" id="message" name="message" />
+        <input
+          type="phone"
+          placeholder="Your Phone"
+          className="bg-transparent input border-b border border-b-primary w-full"
+          name="phone"
+          required
+        />
       </div>
-      <button className="bg-blue-500 text-white p-2 rounded-md w-1/2 mt-4">
-        Submit
-      </button>
+
+      <div className="form-control">
+        <label className="label">
+          <span className="label-text">Message</span>
+        </label>
+        <textarea
+          placeholder="Your Message"
+          className="bg-transparent textarea border-b border border-b-primary w-full"
+          name="message"
+          required
+        ></textarea>
+      </div>
+
+      <div className="divider divider-white" />
+
+      {sentMail ? (
+        <div className="alert alert-success" role="alert">
+          <div className="flex-1">
+            <label>Message sent successfully!</label>
+          </div>
+          <button className="btn btn-ghost" onClick={() => setSentMail(false)}>
+            Close
+          </button>
+        </div>
+      ) : (
+        <button className="btn btn-secondary">Send</button>
+      )}
     </form>
   );
 };
