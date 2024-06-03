@@ -61,10 +61,7 @@ export default function Home() {
 
         <div className="flex-col items-center justify-center m-4 hidden md:flex ">
           <h3 className="text-xl text-center w-full m-3 btn btn-ghost">
-            Now Playing:{" "}
-            <Link className="text-secondary font-bold" href="#">
-              Axe
-            </Link>
+            Now Playing: Axe
           </h3>
           {!smallScreen && <AdvancedAudioPlayer />}
 
