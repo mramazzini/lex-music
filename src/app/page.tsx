@@ -49,7 +49,7 @@ export default function Home() {
                 Get a Quote -&gt;
               </Link>
               <Link
-                href="https://soundcloud.com/nullxrt/may-wip-give-me-ideas"
+                href="https://soundcloud.com/nullxrt/"
                 className="btn btn-ghost text-md m-2"
               >
                 View Tracks -&gt;
@@ -98,7 +98,7 @@ export default function Home() {
               Get a Quote -&gt;
             </Link>
             <Link
-              href="https://soundcloud.com/nullxrt/may-wip-give-me-ideas"
+              href="https://soundcloud.com/nullxrt"
               className="btn btn-ghost text-lg m-2"
             >
               View Tracks -&gt;
