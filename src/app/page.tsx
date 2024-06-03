@@ -1,11 +1,17 @@
 "use client";
-
+import { useEffect, useState } from "react";
 import Navbar from "./components/Homepage/Navbar";
 
 import AdvancedAudioPlayer from "./components/Homepage/AudioPlayer";
 import AudioVisualizer from "./components/Homepage/AudioVisualizer";
 import Footer from "./components/Footer";
 export default function Home() {
+  const [smallScreen, setSmallScreen] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setSmallScreen(true);
+    }
+  }, []);
   return (
     <main className="flex flex-col min-h-screen bg-black ">
       <Navbar />
@@ -38,12 +44,12 @@ export default function Home() {
               </button>
             </div>
             <h3 className="text-xl text-center w-full m-3">Now Playing: Axe</h3>
-            {window.innerWidth < 768 && <AdvancedAudioPlayer />}
+            {smallScreen && <AdvancedAudioPlayer />}
           </div>
         </div>
 
         <div className="flex-col items-center justify-center m-4 hidden md:flex my-48">
-          {window.innerWidth > 768 && <AdvancedAudioPlayer />}
+          {!smallScreen && <AdvancedAudioPlayer />}
 
           <div className="flex-row items-center justify-center m-4  ">
             <button className="btn btn-secondary text-lg m-2 text-white ">
