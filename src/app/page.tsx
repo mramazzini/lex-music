@@ -66,7 +66,7 @@ export default function Home() {
                   mouseHover ? "opacity-0" : "opacity-100"
                 }`}
               >
-                Now Playing: Axe
+                Now Playing: <span className="font-bold">Axe - Nullart</span>
               </span>
             </Link>
 
@@ -84,7 +84,7 @@ export default function Home() {
                 mouseHover ? "opacity-0" : "opacity-100"
               }`}
             >
-              Now Playing: Axe
+              Now Playing: <span className="font-bold">Axe - Nullart</span>
             </span>
           </Link>
 
