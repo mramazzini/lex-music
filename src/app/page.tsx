@@ -29,7 +29,7 @@ export default function Home() {
       ></canvas>
 
       {/* hero */}
-      <div className="flex h-screen relative items-center justify-between text-white font-bold flex-col pt-20 px-4 md:px-0 xl:bg-none w-full max-h-[1200px] ">
+      <div className="flex h-screen relative items-center justify-between text-white font-bold flex-col pt-20 px-4 md:px-0 xl:bg-none w-full max-h-[1200px] z-[1] ">
         <div className="flex flex-col items-center justify-center ">
           <h1 className="text-center text-7xl  ">
             <span className="gradient-text">Nullart</span> Music
@@ -49,20 +49,24 @@ export default function Home() {
                 View Tracks -&gt;
               </Link>
             </div>
-            <h3 className="text-xl text-center w-full m-3 btn btn-ghost">
-              Now Playing:{" "}
-              <Link className="text-secondary font-bold" href="#">
-                Axe
-              </Link>
-            </h3>
+            <Link
+              href="https://soundcloud.com/nullxrt/may-wip-give-me-ideas"
+              className="text-xl text-center w-full m-3 btn btn-ghost"
+            >
+              Now Playing: Axe
+            </Link>
+
             {smallScreen && <AdvancedAudioPlayer />}
           </div>
         </div>
 
         <div className="flex-col items-center justify-center m-4 hidden md:flex ">
-          <h3 className="text-xl text-center w-full m-3 btn btn-ghost">
+          <Link
+            href="https://soundcloud.com/nullxrt/may-wip-give-me-ideas"
+            className="text-xl text-center w-full m-3 btn btn-ghost"
+          >
             Now Playing: Axe
-          </h3>
+          </Link>
           {!smallScreen && <AdvancedAudioPlayer />}
 
           <div className="flex-row items-center justify-center m-4  ">
