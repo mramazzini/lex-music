@@ -8,7 +8,7 @@ const Footer = () => {
         <img src="/nullart.jpg" className="w-6 h-6 rounded-xl" />
         <p>Created by Matteo Ramazzini - Copyright © 2024</p>
       </aside>
-      <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+      <nav className="grid-flow-col gap-4 place-self-center md:justify-self-end">
         <Link
           href="https://soundcloud.com/nullxrt"
           className="mx-2 btn-ghost btn"
