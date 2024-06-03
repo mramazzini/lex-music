@@ -33,11 +33,23 @@ export default function Home() {
           <p className="text-center text-xl z-[1] my-4">
             Custom music for your projects
           </p>
+          <div className="flex-col items-center justify-center flex md:hidden">
+            <div className="flex-row items-center justify-center  my-4">
+              <button className="btn btn-secondary text-md m-2 text-white ">
+                Get a Quote -&gt;
+              </button>
+              <button className="btn btn-ghost text-md m-2">
+                View Tracks -&gt;
+              </button>
+            </div>
+            <h3 className="text-xl text-center w-full m-3">Now Playing: Axe</h3>
+            <AdvancedAudioPlayer />
+          </div>
         </div>
-        <div className="flex flex-col items-center justify-center m-4">
-          <h3 className="text-4xl text-center w-full m-3">Play Me!</h3>
+
+        <div className="flex-col items-center justify-center m-4 hidden md:flex">
           <AdvancedAudioPlayer />
-          <div className="flex flex-row items-center justify-center m-4">
+          <div className="flex-row items-center justify-center m-4  ">
             <button className="btn btn-secondary text-lg m-2 text-white ">
               Get a Quote -&gt;
             </button>

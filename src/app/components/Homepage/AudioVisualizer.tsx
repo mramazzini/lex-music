@@ -8,24 +8,28 @@ const AudioVisualizer = ({ audioID }: { audioID: string }) => {
 
     let wave = new Wave(audio, canvas);
 
-    wave.addAnimation(
-      new wave.animations.Lines({
-        count: window.innerWidth / 10,
-        frequencyBand: "highs",
-        top: true,
-        lineColor: "#e761e5",
-      })
-    );
-
-    wave.addAnimation(
-      new wave.animations.Circles({
-        lineColor: { gradient: ["#FAD961", "#FAD961", "#F76B1C"], rotate: 90 },
-        lineWidth: 4,
-        diameter: 20,
-        count: 10,
-        frequencyBand: "base",
-      })
-    );
+    if (window.innerWidth > 768) {
+      wave.addAnimation(
+        new wave.animations.Lines({
+          count: window.innerWidth / 10,
+          frequencyBand: "highs",
+          top: true,
+          lineColor: "#e761e5",
+        })
+      );
+      wave.addAnimation(
+        new wave.animations.Circles({
+          lineColor: {
+            gradient: ["#FAD961", "#FAD961", "#F76B1C"],
+            rotate: 90,
+          },
+          lineWidth: 2,
+          diameter: 20,
+          count: 5,
+          frequencyBand: "base",
+        })
+      );
+    }
     canvas.style.width = "100%";
     canvas.style.height = "100%";
     canvas.width = canvas.offsetWidth;

@@ -40,6 +40,13 @@ const AdvancedAudioPlayer = () => {
 
   return (
     <>
+      <div className="flex justify-center items-center flex-row">
+        <div className="flex justify-center items-center flex-col">
+          <h3 className="hidden md:block text-4xl text-center w-full m-3">
+            Play Me!
+          </h3>
+        </div>
+      </div>
       <audio
         id={`audio`}
         ref={audio}
@@ -48,15 +55,6 @@ const AdvancedAudioPlayer = () => {
         className="bg-transparent"
       ></audio>
       <AudioVisualizer audioID={`audio`} />
-
-      <div className="flex justify-center items-center flex-row">
-        <div className="flex justify-center items-center flex-col">
-          {/* <h3 className="text-2xl text-center w-full">
-            {init ? "Currently Playing:" : "Play Me!"}
-          </h3>
-          <h3 className="text-2xl text-center w-full">{currentSong.title}</h3> */}
-        </div>
-      </div>
     </>
   );
 };
