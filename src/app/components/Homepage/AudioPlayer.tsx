@@ -54,7 +54,6 @@ const AdvancedAudioPlayer = () => {
         controls
         className="bg-transparent"
       ></audio>
-      <AudioVisualizer audioID={`audio`} />
     </>
   );
 };
