@@ -20,18 +20,19 @@ export default function Home() {
     <main className="flex flex-col min-h-screen bg-black">
       <Navbar fixed />
       <AudioVisualizer />
-      <div className="home-gradient max-h-[1200px] h-screen w-screen absolute top-0 left-0 z-0"></div>
+      <div className="home-gradient  h-screen w-screen absolute top-0 left-0 z-0"></div>
+
       <img
         src="/hero-bg.svg"
-        className="absolute h-screen w-screen bot-0 object-cover  max-h-[1200px] pointer-events-none z-[0]"
+        className="absolute h-screen w-screen bot-0 object-cover  object-bottom pointer-events-none z-[0]"
       />
       <canvas
         id="canvas"
-        className="absolute h-screen w-screen  pointer-events-none  max-h-[1200px] top-0 left-0 pointer-events-none z-[1]"
+        className="absolute h-screen w-screen  pointer-events-none top-0 left-0 pointer-events-none z-[1]"
       ></canvas>
 
       {/* hero */}
-      <div className="flex h-screen relative items-center justify-between text-white font-bold flex-col pt-20 px-4 md:px-0 xl:bg-none w-full max-h-[1200px] z-[1] ">
+      <div className="flex h-screen relative items-center justify-between text-white font-bold flex-col pt-20 px-4 md:px-0 xl:bg-none w-full  z-[1] ">
         <div className="flex flex-col items-center justify-center ">
           <h1 className="text-center text-7xl  ">
             <span className="gradient-text">Nullart</span> Music

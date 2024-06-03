@@ -24,11 +24,11 @@ export const Navbar = ({ fixed }: { fixed?: boolean }) => {
               My Tracks
             </Link>
           </li>
-          <li>
-            <Link href="/about" className="btn btn-ghost">
+          {/* <li>
+            <Link href="#about" className="btn btn-ghost">
               About
             </Link>
-          </li>
+          </li> */}
         </ul>
         <ul className="menu menu-horizontal px-1 flex md:hidden">
           <li>
@@ -41,9 +41,9 @@ export const Navbar = ({ fixed }: { fixed?: boolean }) => {
                 <li>
                   <Link href="https://soundcloud.com/nullxrt">Tracks</Link>
                 </li>
-                <li>
-                  <Link href="/about">About</Link>
-                </li>
+                {/* <li>
+                  <Link href="#about">About</Link>
+                </li> */}
               </ul>
             </details>
           </li>
